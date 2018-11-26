@@ -3,7 +3,17 @@
 """
 Created on Mon Nov 26 06:56:21 2018
 
-@author: adrish
+Application Name: //__ROLL__DICE__ROLLER__\\
+Description: Dice roller app using ASCII art
+
+Instruction to run: 
+    1> Open terminal or command promt
+    2> run python strat_roll.py
+        (i)  enter 'r' without quotes to start roll
+        (ii) enter 'q' without quotes to exit program
+
+@author: adrish | email: adrish.maity@outlook.com
+
 """
 import time
 import subprocess as sp
@@ -15,8 +25,10 @@ from sys import platform
 def clearScreen():
     if platform == "linux" or platform == "linux2":
         sp.call('clear',shell=True)
+        print("\n\n")
     else:
         sp.call('cls',shell=True)
+        print("\n\n")
 
 
 ################### Main Function ###################################################
@@ -36,16 +48,23 @@ def main():
     all_dices_content = all_dices.read()
     all_dices.close()
     
+    ############ Dictonary to strore dice ascii codes ###################
     diceDictionary = {}
     
+    ############ one dice art takes 297 ascii characters #################
     for i in range(6):
-        diceDictionary[i+1] = all_dices_content[i*72+i:(i*72+12*6+i)]
+        diceDictionary[i+1] = all_dices_content[i*297:(298*(i+1)+1)]
     
+    
+    ############## Application Loop ####################
     while(True):
         clearScreen()
-        print(" ______________WELCOME TO ROLL DICE ROLLER ______________")
-        userInput = input("enter 'r' to roll dice or 'q' to exit: ")
+        print("\t\t\t______________WELCOME TO //__ROLL__DICE__ROLLER__\\\______________\n\n")
+        userInput = input("\t\t\tenter 'r' to roll dice or 'q' to exit: ")
+        
         if userInput == 'r':
+            
+            ############## Roll Animation 6 times ####################
             for i in range(6):
                 clearScreen()
                 print('%s\r'%dice1_content)
@@ -55,15 +74,17 @@ def main():
                 time.sleep(0.3)
                 clearScreen()
             
+            ############## Print Result ##########################
             clearScreen()
             rolled = random.randint(1,6)
             print('%s\r\n\n'%diceDictionary[rolled])
-            print('You rolled: %d\n'%rolled)
+            print('\t\tYou rolled: %d\n'%rolled)
             
-            input('Press enter to continue..')
+            input('\t\tPress enter to continue..')
+            
         elif userInput == 'q':
             clearScreen()
-            print("\rThank you for using __ROLL__DICE__ROLLER__\n\n\n")
+            print("\r\t\tThank you for using //__ROLL__DICE__ROLLER__\\\\n\n\n")
             exit()
         
 
