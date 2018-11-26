@@ -1,7 +1,7 @@
 # Dice_Rolling_Simulator
 Dice roller app using ASCII art and Python
 
-# Application Name: //__ROLL__DICE__ROLLER__\\
+# Application Name: //__ROLL__DICE__ROLLER__\\\
 Description: Dice roller app using ASCII art and Python
 
 Instruction to run: 
